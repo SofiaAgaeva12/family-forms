@@ -16,6 +16,7 @@
       </router-link>
     </nav>
   </header>
+  <div class="border-header"></div>
 </template>
 
 <script setup>

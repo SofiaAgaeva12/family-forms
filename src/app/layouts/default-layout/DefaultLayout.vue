@@ -4,13 +4,14 @@
     <div class="page__content">
       <slot></slot>
     </div>
+    <footer-component />
   </div>
 </template>
 
 <script setup lang="ts">
 
-import HeaderComponent from './components/HeaderComponent/index.vue';
-
+import HeaderComponent from './components/header-component/HeaderComponent.vue';
+import FooterComponent from './components/footer-component/FooterComponent.vue';
 </script>
 
 <style scoped>
@@ -18,5 +19,10 @@ import HeaderComponent from './components/HeaderComponent/index.vue';
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
+}
+.page__content {
+  flex-grow: 1;
+  width: 616px;
 }
 </style>

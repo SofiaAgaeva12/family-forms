@@ -1,0 +1,14 @@
+
+.input-container {
+    position: relative;
+    margin-bottom: var(--space-smaller);
+    width: 100%;
+}
+.input-label {
+    position: absolute;
+    left: var(--space-smaller);
+    top: var(--space-x-small);
+    font-size: var(--block-font-size);
+    color: var(--gray-color);
+    transition: 0.2s ease all;
+}

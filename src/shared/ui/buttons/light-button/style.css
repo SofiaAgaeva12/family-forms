@@ -1,0 +1,17 @@
+.light-button {
+    border: 2px solid var(--blue-color);
+    padding: var(--space-smaller) var(--space-medium);
+    border-radius: 100px;
+    color: var(--blue-color);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    max-height: 44px;
+
+    .light-button__plus {
+        width: 24px;
+        height: 24px;
+        margin-right: var(--space-x-small);
+    }
+}

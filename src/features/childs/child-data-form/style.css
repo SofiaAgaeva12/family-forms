@@ -1,0 +1,5 @@
+.child-form {
+    display: flex;
+    gap: var(--space-small-plus);
+    align-items: center;
+}

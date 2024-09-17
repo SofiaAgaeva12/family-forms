@@ -1,0 +1,12 @@
+.footer {
+    width: var(--width-max);
+    padding: 30px;
+    background-color: var(--light-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .footer__note {
+        font-size: var(--block-font-size);
+    }
+}

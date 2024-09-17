@@ -1,6 +1,6 @@
 .header {
-    width: 1366px;
-    padding: 22px 51px;
+    width: var(--width-max);
+    padding: var(--space-medium-plus) var(--space-big);
     display: flex;
     align-items: center;
 
@@ -14,4 +14,9 @@
             color: var(--gray-color);
        }
     }
+}
+.border-header {
+    width: var(--width-max);
+    height: 1px;
+    background-color: var(--light-color);
 }

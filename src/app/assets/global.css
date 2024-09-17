@@ -6,6 +6,9 @@ p {
 body {
   font-family: var(--base-font);
 }
+button {
+  font-family: var(--base-font);
+}
 a {
   text-decoration: none;
 }

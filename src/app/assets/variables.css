@@ -1,13 +1,18 @@
 :root {
   --gray-color: rgba(17, 17, 17, 0.48);
+  --light-color: rgba(17, 17, 17, 0.1);
+  --input-color: rgba(241, 241, 241, 1);
+  --blue-color: rgba(1, 167, 253, 1);
 }
 
 :root {
-  --border-radius: 5px;
+  --border-radius: 4px;
 }
 
 :root {
   --base-font: 'Montserrat', sans-serif;
+  --block-font-size: 13px;
+  --base-font-size: 14px;
   --h1-font-size: 2rem;
   --h2-font-size: 1.25rem;
   --card-title-desktop-font-size: 1rem;
@@ -15,19 +20,21 @@
 }
 
 :root {
+  --width-max: 1366px;
   --width-xs: 103px;
   --width-s: 206px;
   --width-m: 310px;
 }
 
+
 :root {
-  --space-x-small: 4px;
-  --space-smaller: 8px;
+  --space-x-small: 5px;
+  --space-smaller: 10px;
   --space-small: 12px;
-  --space-small-plus: 16px;
+  --space-small-plus: 18px;
   --space-medium: 20px;
-  --space-medium-plus: 24px;
-  --space-large: 28px;
+  --space-medium-plus: 22px;
+  --space-large: 30px;
   --space-large-plus: 32px;
   --space-x-large: 36px;
   --space-x-large-plus: 40px;
