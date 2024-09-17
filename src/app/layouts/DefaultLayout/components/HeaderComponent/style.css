@@ -1,0 +1,17 @@
+.header {
+    width: 1366px;
+    padding: 22px 51px;
+    display: flex;
+    align-items: center;
+
+   .header__nav {
+       display: flex;
+       justify-content: center;
+       flex-grow: 1;
+       gap: var(--space-medium-plus);
+
+       .header__nav-link {
+            color: var(--gray-color);
+       }
+    }
+}
