@@ -1,0 +1,12 @@
+.shell {
+    padding: var(--space-smaller) var(--space-medium);
+    background-color: var(--input-color);
+    border-radius: var(--border-radius);
+    width: fit-content;
+}
+
+.shells {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

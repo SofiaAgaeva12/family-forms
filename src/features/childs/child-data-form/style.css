@@ -3,3 +3,8 @@
     gap: var(--space-small-plus);
     align-items: center;
 }
+@media screen and (max-width: 500px) {
+    .child-form {
+        flex-direction: column;
+    }
+}

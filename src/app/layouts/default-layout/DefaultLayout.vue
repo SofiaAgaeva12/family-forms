@@ -9,9 +9,8 @@
 </template>
 
 <script setup lang="ts">
-
-import HeaderComponent from './components/header-component/HeaderComponent.vue';
-import FooterComponent from './components/footer-component/FooterComponent.vue';
+import HeaderComponent from './components/header-component/HeaderComponent.vue'
+import FooterComponent from './components/footer-component/FooterComponent.vue'
 </script>
 
 <style scoped>
@@ -23,6 +22,12 @@ import FooterComponent from './components/footer-component/FooterComponent.vue';
 }
 .page__content {
   flex-grow: 1;
-  width: 616px;
+  width: var(--width-xs);
+}
+@media screen and (max-width: 800px) {
+  .page__content {
+    padding: var(--space-smaller);
+    width: var(--width-max);
+  }
 }
 </style>

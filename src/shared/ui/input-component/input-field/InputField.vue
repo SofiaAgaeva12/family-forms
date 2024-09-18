@@ -1,17 +1,18 @@
 <template>
   <input
-      :autocomplete="autocompleteType"
-      :class="[DisabledInput, typeOfInput]"
-      :disabled="disabled"
-      :type="type"
-      :value="modelValue"
-      class="form-input"
-      @blur="updateBlur"
-      @input="updateValue"
+    :autocomplete="autocompleteType"
+    :class="[DisabledInput, typeOfInput]"
+    :disabled="disabled"
+    :type="type"
+    :value="modelValue"
+    class="form-input"
+    @focus="updateFocus"
+    @blur="updateBlur"
+    @input="updateValue"
   />
 </template>
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed } from 'vue'
 
 const props = defineProps({
   type: {
@@ -31,27 +32,29 @@ const props = defineProps({
     type: Boolean,
     default: false
   }
-
-});
+})
 
 const DisabledInput = computed(() => {
-return props.disabled ? 'form-input--disabled' : '';
-});
+  return props.disabled ? 'form-input--disabled' : ''
+})
 
 const typeOfInput = computed(() => {
-return `form-input--${props.type}`;
-});
+  return `form-input--${props.type}`
+})
 
-const emit = defineEmits(['update:modelValue', 'blur']);
+const emit = defineEmits(['update:modelValue', 'focus', 'blur'])
 
 const updateValue = (event) => {
-const inputElement = event.target;
-emit('update:modelValue', inputElement.value);
-};
+  const inputElement = event.target
+  emit('update:modelValue', inputElement.value)
+}
 
 const updateBlur = () => {
-emit('blur');
-};
+  emit('blur')
+}
+const updateFocus = () => {
+  emit('focus')
+}
 </script>
 
 <style lang="css" scoped>

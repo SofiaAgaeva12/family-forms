@@ -2,7 +2,7 @@
 .input-container {
     position: relative;
     margin-bottom: var(--space-smaller);
-    width: 100%;
+    width: var(--width-max);
 }
 .input-label {
     position: absolute;
@@ -11,4 +11,7 @@
     font-size: var(--block-font-size);
     color: var(--gray-color);
     transition: 0.2s ease all;
+}
+.input-label-blue {
+    color: var(--blue-color);
 }

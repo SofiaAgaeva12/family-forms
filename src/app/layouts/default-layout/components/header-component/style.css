@@ -1,5 +1,5 @@
 .header {
-    width: var(--width-max);
+    width: var(--width-content);
     padding: var(--space-medium-plus) var(--space-big);
     display: flex;
     align-items: center;
@@ -19,4 +19,18 @@
     width: var(--width-max);
     height: 1px;
     background-color: var(--light-color);
+}
+@media screen and (max-width: 1400px) {
+    .header {
+        width: var(--width-max);
+    }
+}
+@media screen and (max-width: 800px) {
+    .header {
+        padding: var(--space-medium-plus) var(--space-smaller);
+    .header__nav {
+        display: flex;
+        justify-content: flex-end;
+        }
+    }
 }

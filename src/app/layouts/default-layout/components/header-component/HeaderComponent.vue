@@ -9,7 +9,7 @@
           Форма
         </p>
       </router-link>
-      <router-link to="/">
+      <router-link to="/preview">
         <p class="header__nav-link">
           Превью
         </p>

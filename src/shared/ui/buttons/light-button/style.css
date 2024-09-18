@@ -1,7 +1,7 @@
 .light-button {
     border: 2px solid var(--blue-color);
     padding: var(--space-smaller) var(--space-medium);
-    border-radius: 100px;
+    border-radius: var(--border-radius-max);
     color: var(--blue-color);
     background-color: white;
     display: flex;

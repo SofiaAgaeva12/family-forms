@@ -1,13 +1,12 @@
 <template>
-
+  <button class="blue-button">
+   <slot></slot>
+  </button>
 </template>
 
-<script>
-export default {
-  name: "BlueButton"
-}
+<script setup>
 </script>
 
 <style scoped>
-
+@import './style.css';
 </style>

@@ -2,4 +2,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 70px;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 460px) {
+    .child-block-header {
+        gap: var(--space-medium);
+    }
 }

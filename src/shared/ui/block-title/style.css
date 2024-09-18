@@ -1,4 +1,5 @@
 .title {
     line-height: 24px;
-    padding: var(--space-large) 0;
+    padding-top: var(--space-large);
+    padding-bottom: var(--space-medium);
 }
