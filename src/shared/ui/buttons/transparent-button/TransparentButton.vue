@@ -1,11 +1,10 @@
 <template>
-<button class="transparent-button">
-  <slot></slot>
-</button>
+  <button class="transparent-button" type="button">
+    <slot></slot>
+  </button>
 </template>
 
-<script setup>
-</script>
+<script setup></script>
 
 <style scoped>
 @import './style.css';

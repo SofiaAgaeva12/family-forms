@@ -15,3 +15,7 @@
         margin-right: var(--space-x-small);
     }
 }
+
+.light-button--disabled {
+    background-color: var(--light-color);
+}

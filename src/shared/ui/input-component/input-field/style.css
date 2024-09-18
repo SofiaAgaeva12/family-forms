@@ -1,7 +1,8 @@
 .form-input {
     border-radius: var(--border-radius);
     border: 1px solid var(--input-color);
-    padding: var(--space-smaller);
+    padding-left: var(--space-smaller);
+    padding-top: var(--space-medium);
     width: var(--width-max);
     outline: none;
     height: 56px;
