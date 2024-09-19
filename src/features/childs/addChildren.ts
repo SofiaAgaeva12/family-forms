@@ -1,6 +1,11 @@
 import { ref } from 'vue'
-import { Child } from '@/shared/types'
+
 const useAddChildren = () => {
+  interface Child {
+    name: string
+    age: number
+  }
+
   const children = ref<Child[]>([])
   const childrenId = ref<number[]>([])
 
