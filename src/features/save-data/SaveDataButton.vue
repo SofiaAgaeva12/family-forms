@@ -6,10 +6,8 @@
 
 <script setup lang="ts">
 import BlueButton from '@/shared/ui/buttons/blue-button/BlueButton.vue'
-import { UserChildData } from '@/shared/types'
-const saveData = (userChildData: UserChildData) => {
-  localStorage.setItem('userData', JSON.stringify(userChildData))
-}
+
+const saveData = (userChildData: UserChildData) => {}
 </script>
 
 <style scoped>

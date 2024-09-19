@@ -13,6 +13,8 @@
     "format": "prettier --write src"
   },
   "dependencies": {
+    "@volar/language-server": "2.4.0-alpha.18",
+    "@vue/language-server": "2.0.28",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"
   },

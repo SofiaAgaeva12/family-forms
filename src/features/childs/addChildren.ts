@@ -1,11 +1,7 @@
 import { ref } from 'vue'
+import type { Child } from '@/entities'
 
 const useAddChildren = () => {
-  interface Child {
-    name: string
-    age: number
-  }
-
   const children = ref<Child[]>([])
   const childrenId = ref<number[]>([])
 
