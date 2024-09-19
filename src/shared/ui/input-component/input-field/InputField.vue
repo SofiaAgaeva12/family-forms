@@ -33,6 +33,7 @@ const props = defineProps({
     default: false
   }
 })
+const emit = defineEmits(['update:modelValue', 'focus', 'blur'])
 
 const DisabledInput = computed(() => {
   return props.disabled ? 'form-input--disabled' : ''
@@ -41,8 +42,6 @@ const DisabledInput = computed(() => {
 const typeOfInput = computed(() => {
   return `form-input--${props.type}`
 })
-
-const emit = defineEmits(['update:modelValue', 'focus', 'blur'])
 
 const updateValue = (event) => {
   const inputElement = event.target

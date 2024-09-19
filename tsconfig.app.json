@@ -15,6 +15,6 @@
     "baseUrl": "./family-forms-interview",
     "paths": {
       "@/*": ["./src/*"]
-    },
+    }
   }
 }

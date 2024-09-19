@@ -1,7 +1,13 @@
 type UserDataRequest = {}
 
 export const api = {
-  saveUserData(userData: UserDataRequest) {
+  saveUserDataToLocalStorage(userData: UserDataRequest) {
     localStorage.setItem('userData', JSON.stringify(userData))
+  },
+  deleteChildDataItem(userData: UserDataRequest) {
+    localStorage.setItem('userData', JSON.stringify(userData))
+  },
+  getUserDataFromLocalStorage() {
+    return localStorage.getItem('userData')
   }
 }

@@ -4,8 +4,8 @@
 </template>
 
 <script setup>
-import UserData from '@/features/user-data/UserData.vue'
-import ChildData from '@/features/childs/child-data/ChildData.vue'
+import UserData from '@/features/user-data/parent-data/ParentData.vue'
+import ChildData from '@/features/user-data/child-data/ChildData.vue'
 </script>
 
 <style scoped></style>

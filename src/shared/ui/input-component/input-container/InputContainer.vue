@@ -3,7 +3,14 @@
     <label for="name" class="input-label" :class="{ 'input-label-blue': isFocus }">
       {{ title }}</label
     >
-    <input-field id="name" :model-value="inputValue" @focus="changeFocus" @blur="changeFocus" />
+    <input-field
+      id="name"
+      :model-value="inputValue"
+      :type="typeInput"
+      @focus="changeFocus"
+      @blur="changeFocus"
+      @update:modelValue="updateInputValue"
+    />
   </div>
 </template>
 
@@ -19,12 +26,20 @@ defineProps({
   inputValue: {
     type: String,
     default: ''
+  },
+  typeInput: {
+    type: String,
+    default: ''
   }
 })
+const emit = defineEmits(['newValue'])
 
 const isFocus = ref(false)
 const changeFocus = () => {
   isFocus.value = !isFocus.value
+}
+const updateInputValue = (newValue: string | number) => {
+  emit('newValue', newValue)
 }
 </script>
 

@@ -1,12 +1,16 @@
-interface Child {
+interface ChildData {
+  id: number
   name: string
   age: number
 }
 
-interface UserData {
+interface ParentData {
   name: string
   age: number
-  children?: Child[]
 }
 
-export type { UserData, Child }
+interface UserData extends ParentData {
+  children?: ChildData[]
+}
+
+export type { UserData, ChildData, ParentData }

@@ -1,13 +1,13 @@
 <template>
-  <user-data-form />
-  <child-forms />
-  <save-data />
+  <parent-data-form />
+  <child-data-forms />
+  <save-data-button />
 </template>
 
-<script setup>
-import UserDataForm from '@/features/user-data-form/UserDataForm.vue'
-import ChildForms from '@/features/childs/child-forms/ChildForms.vue'
-import SaveData from '@/features/save-data/SaveDataButton.vue'
+<script setup lang="ts">
+import ParentDataForm from '@/features/user-data-form/ParentDataForm.vue'
+import ChildDataForms from '@/features/user-data-form/childs/child-data-forms/ChildDataForms.vue'
+import SaveDataButton from '@/features/user-data-form/save-data/SaveDataButton.vue'
 </script>
 
 <style scoped></style>
