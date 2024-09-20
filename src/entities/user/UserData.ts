@@ -5,11 +5,12 @@ import { reactive } from 'vue'
 const userData: UserData = reactive({ age: 0, name: '', children: [] })
 
 const useUserData = () => {
-  const setParentData = (parentData: ParentData) => {
-    userData.age = parentData.age
-    userData.name = parentData.name
+  const setParentName = (parentName: string) => {
+    userData.name = parentName
   }
-
+  const setParentAge = (parentAge: number) => {
+    userData.age = parentAge
+  }
   const setChildData = (childrenData: ChildData[]) => {
     userData.children = childrenData
   }
@@ -26,7 +27,7 @@ const useUserData = () => {
     userData.name = savedData.name
     userData.children = savedData.children
   }
-  return { setParentData, setChildData, removeChildData, saveUserData, getUserData }
+  return { setParentAge, setParentName, setChildData, removeChildData, saveUserData, getUserData }
 }
 
 export { userData, useUserData }

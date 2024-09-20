@@ -2,38 +2,34 @@
   <div class="child-block-header">
     <block-title>Дети (макс. 5)</block-title>
     <light-button @click="addChildForm" :isChildrenFive="isChildrenFive"
-      >Добавить ребенка</light-button
-    >
+      >Добавить ребенка
+    </light-button>
   </div>
-  <div v-for="(childSavedData, id) in userData.children" :key="id">
-    <child-data-form
-      :indexChild="id"
-      :childSavedData="childSavedData"
-      @remove="deleteUnsavedChild(id)"
-      @child-data="getOneChildData"
-    />
-  </div>
-  <div v-for="(el, id) in childForms" :key="id">
-    <child-data-form
-      :indexChild="id"
-      @remove="deleteUnsavedChild(id)"
-      @child-data="getOneChildData"
-    />
-  </div>
+  <transition-group name="fade-up" tag="div">
+    <div v-for="(childData, id) in unsavedChildren" :key="id" class="fade-item">
+      <child-data-form
+        :indexChild="id"
+        :childSavedData="childData"
+        @remove="deleteUnsavedChild(id)"
+        @child-data="getOneChildData"
+      />
+    </div>
+  </transition-group>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import BlockTitle from '@/shared/ui/block-title/BlockTitle.vue'
 import LightButton from '@/shared/ui/buttons/light-button/LightButton.vue'
 import ChildDataForm from '@/features/user-data-form/childs/child-data-form/ChildDataForm.vue'
-import { useAddChildren } from '@/features/user-data-form/childs/addChildren.ts'
-import { type ChildData, userData } from '@/entities'
+import { useAddChildren } from '@/features'
+import { type ChildData } from '@/entities'
 
-const { addChildForm, childForms, removeChildForm, editChildData } = useAddChildren()
+const { addChildForm, unsavedChildren, removeChildForm, editChildData, getSavedChildren } =
+  useAddChildren()
 
 const isChildrenFive = computed(() => {
-  return childForms.value.length >= 5
+  return unsavedChildren.value.length >= 5
 })
 
 const getOneChildData = (childData: ChildData) => {
@@ -42,6 +38,10 @@ const getOneChildData = (childData: ChildData) => {
 const deleteUnsavedChild = (id: number) => {
   removeChildForm(id)
 }
+
+onMounted(() => {
+  getSavedChildren()
+})
 </script>
 
 <style scoped>

@@ -13,4 +13,12 @@ interface UserData extends ParentData {
   children?: ChildData[]
 }
 
-export type { UserData, ChildData, ParentData }
+interface NameData {
+  name: string
+}
+
+interface AgeData {
+  age: number
+}
+
+export type { UserData, ChildData, ParentData, AgeData, NameData }

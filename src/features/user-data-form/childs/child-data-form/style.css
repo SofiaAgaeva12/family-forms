@@ -1,7 +1,13 @@
 .child-form {
     display: flex;
     gap: var(--space-small-plus);
-    align-items: center;
+
+    .child-form__fields {
+        display: flex;
+        gap: var(--space-small-plus);
+        align-items: flex-start;
+        width: var(--width-max)
+    }
 }
 @media screen and (max-width: 500px) {
     .child-form {

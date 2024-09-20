@@ -5,6 +5,8 @@ p {
 
 body {
   font-family: var(--base-font);
+  position: relative;
+  overflow-x: hidden;
 }
 button {
   font-family: var(--base-font);

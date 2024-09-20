@@ -1,35 +1,49 @@
 import { ref } from 'vue'
-import { type ChildData, useUserData } from '@/entities'
+import { type ChildData, useUserData, userData } from '@/entities'
 
 const { setChildData } = useUserData()
 
-const childForms = ref<ChildData[]>([])
+const unsavedChildren = ref<ChildData[]>([])
 
 const useAddChildren = () => {
   const addChildForm = () => {
-    if (childForms.value.length < 5) {
+    if (unsavedChildren.value.length < 5) {
       const ChildElement = {
-        id: childForms.value.length,
+        id: unsavedChildren.value.length,
         name: '',
         age: 0
       }
-      childForms.value.push(ChildElement)
+      unsavedChildren.value.push(ChildElement)
     }
   }
   const removeChildForm = (id: number) => {
-    if (id >= 0 && id <= childForms.value.length + 1) {
-      childForms.value.splice(id, 1)
+    if (id >= 0 && id <= unsavedChildren.value.length + 1) {
+      unsavedChildren.value.splice(id, 1)
     }
   }
   const editChildData = (childData: ChildData) => {
-    childForms.value[childData.id].name = childData.name
-    childForms.value[childData.id].age = childData.age
+    if (childData.name) {
+      unsavedChildren.value[childData.id].name = childData.name
+    }
+    if (childData.age) {
+      unsavedChildren.value[childData.id].age = childData.age
+    }
   }
 
   const saveChildren = () => {
-    setChildData(childForms.value)
+    setChildData(unsavedChildren.value)
   }
-  return { addChildForm, removeChildForm, childForms, editChildData, saveChildren }
+  const getSavedChildren = () => {
+    unsavedChildren.value = userData.children
+  }
+  return {
+    addChildForm,
+    removeChildForm,
+    unsavedChildren,
+    editChildData,
+    saveChildren,
+    getSavedChildren
+  }
 }
 
 export { useAddChildren }

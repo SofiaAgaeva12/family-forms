@@ -4,6 +4,13 @@
     margin-bottom: var(--space-smaller);
     width: var(--width-max);
 }
+
+.input-container--error {
+    .input-label {
+        color: var(--error-color);
+    }
+}
+
 .input-label {
     position: absolute;
     left: var(--space-smaller);
@@ -12,6 +19,10 @@
     color: var(--gray-color);
     transition: 0.2s ease all;
 }
-.input-label-blue {
+.input-label--blue {
     color: var(--blue-color);
+}
+
+.input-label--red {
+    color: var(--error-color);
 }

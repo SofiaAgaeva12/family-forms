@@ -1,12 +1,22 @@
 <template>
   <form class="child-form" @submit.prevent>
-    <input-container :input-value="childSavedData.name" :title="'Имя'" @new-value="getChildName" />
-    <input-container
-      :input-value="childSavedData.age"
-      :title="'Возраст'"
-      :type-input="'number'"
-      @new-value="getChildAge"
-    />
+    <div class="child-form__fields">
+      <input-container
+        :input-value="childSavedData.name"
+        :title="'Имя'"
+        :error="errors.name"
+        @new-value="getChildName"
+        @validate="(e) => validateData('name', e)"
+      />
+      <input-container
+        :input-value="childSavedData.age"
+        :title="'Возраст'"
+        :type-input="'number'"
+        :error="errors.age"
+        @new-value="getChildAge"
+        @validate="(e) => validateData('name', e)"
+      />
+    </div>
     <transparent-button @click="removeDataChild">Удалить</transparent-button>
   </form>
 </template>
@@ -15,7 +25,7 @@
 import InputContainer from '@/shared/ui/input-component/input-container/InputContainer.vue'
 import TransparentButton from '@/shared/ui/buttons/transparent-button/TransparentButton.vue'
 import { reactive } from 'vue'
-import type { ChildData } from '@/entities'
+import { type ChildData, useChildrenErrors } from '@/entities'
 
 const emit = defineEmits(['remove', 'childData'])
 const props = defineProps<{
@@ -31,6 +41,8 @@ const childData = reactive({
   name: '',
   age: 0
 })
+
+const { validateData, errors } = useChildrenErrors()
 
 const getChildName = (userName: string) => {
   childData.id = props.indexChild

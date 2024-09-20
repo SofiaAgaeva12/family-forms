@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import ShellData from '@/shared/ui/shell-data/ShellData.vue'
-import type { ChildData } from '@/entities/index.js'
+import type { ChildData } from '@/entities/'
 
 const props = defineProps<{
   data: ChildData[]

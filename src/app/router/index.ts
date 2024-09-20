@@ -18,4 +18,24 @@ const router = createRouter({
   ]
 })
 
+let previousRoute = null
+let firstLoad = true
+
+router.beforeEach((to, from, next) => {
+  if (firstLoad) {
+    to.meta.isForward = null
+    firstLoad = false
+  } else {
+    if (previousRoute) {
+      to.meta.isForward = previousRoute < to.fullPath
+    } else {
+      to.meta.isForward = true
+    }
+  }
+
+  previousRoute = to.fullPath
+
+  next()
+})
+
 export default router

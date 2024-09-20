@@ -12,3 +12,7 @@
 .form-input:focus {
     border-color: var(--blue-color);
 }
+
+.form-input--error,  .form-input--error:focus {
+    border-color: var(--error-color);
+}
