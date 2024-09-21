@@ -6,14 +6,23 @@ import { userData } from '../UserData'
 const isParentDataValid = ref(false)
 const isChildDataValid = ref(false)
 
+const validateParentData = () => {
+  isParentDataValid.value = validate(userData).valid
+}
+
+const validateChildrenData = () => {
+  if (!userData.children) return
+  isChildDataValid.value = userData.children.every((childData) => validate(childData).valid)
+}
+
 const useParentsErrors = () => {
   const initState = { name: '', age: '' }
   const { errors, setInitState } = useError()
   setInitState(initState)
 
-  const validateData = (key, data) => {
+  const validateData = (key: string, data: string | number) => {
     errors.value[key] = validateField(key, data)
-    isParentDataValid.value = validate(userData).valid
+    validateParentData()
   }
 
   return { validateData, errors }
@@ -24,15 +33,21 @@ const useChildrenErrors = () => {
   const { errors, setInitState } = useError()
   setInitState(initState)
 
-  const validateData = (key, data) => {
+  const validateData = (key: string, data: string | number) => {
     errors.value[key] = validateField(key, data)
-
-    isChildDataValid.value = userData.children.every((childData) => validate(childData).valid)
+    validateChildrenData()
   }
 
   return { validateData, errors }
 }
 
-export { useParentsErrors, isParentDataValid, isChildDataValid, useChildrenErrors }
+export {
+  useParentsErrors,
+  isParentDataValid,
+  isChildDataValid,
+  useChildrenErrors,
+  validateChildrenData,
+  validateParentData
+}
 export * from './rules'
 export * from './forms'

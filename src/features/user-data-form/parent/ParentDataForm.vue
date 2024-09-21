@@ -7,7 +7,7 @@
         :error="errors.name"
         :input-value="userData.name"
         @new-value="getUserName"
-        @validate="(e) => validateData('name', e)"
+        @validate="(e: NewValueEvent) => validateData('name', e)"
       />
     </transition>
 
@@ -18,7 +18,7 @@
         :input-value="userData.age"
         :error="errors.age"
         @new-value="getUserAge"
-        @validate="(e) => validateData('age', e)"
+        @validate="(e: NewValueEvent) => validateData('age', e)"
       />
     </transition>
   </form>
@@ -28,7 +28,7 @@
 import { onMounted } from 'vue'
 import InputContainer from '@/shared/ui/input-component/input-container/InputContainer.vue'
 import BlockTitle from '@/shared/ui/block-title/BlockTitle.vue'
-import { useUserData, userData, useParentsErrors } from '@/entities'
+import { useUserData, userData, useParentsErrors, type NewValueEvent } from '@/entities'
 
 const { setParentName, setParentAge, getUserData } = useUserData()
 

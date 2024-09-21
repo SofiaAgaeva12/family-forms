@@ -23,6 +23,7 @@ const useUserData = () => {
   }
   const getUserData = () => {
     const savedData = JSON.parse(api.getUserDataFromLocalStorage())
+    if (!savedData) return
     userData.age = savedData.age
     userData.name = savedData.name
     userData.children = savedData.children

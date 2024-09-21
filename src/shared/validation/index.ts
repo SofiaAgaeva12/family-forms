@@ -6,10 +6,6 @@ export function all(rules: ValidatorFunction[]): (data: any) => boolean {
   return (data) => rules.every((isValid) => isValid(data))
 }
 
-export function some(rules: ValidatorFunction[]): (data: any) => boolean {
-  return (data) => rules.some((isValid) => isValid(data))
-}
-
 export function createValidator(rules: Rules, errors: Errors) {
   function validate(data: any): { valid: boolean; errors: Errors } {
     const result: { valid: boolean; errors: Errors } = {

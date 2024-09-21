@@ -1,9 +1,7 @@
 <template>
   <div class="child-block-header">
     <block-title>Дети (макс. 5)</block-title>
-    <light-button @click="addChildForm" :isChildrenFive="isChildrenFive"
-      >Добавить ребенка
-    </light-button>
+    <light-button @click="addChildForm" v-if="!isChildrenFive">Добавить ребенка </light-button>
   </div>
   <transition-group name="fade-up" tag="div">
     <div v-for="(childData, id) in unsavedChildren" :key="id" class="fade-item">
@@ -11,7 +9,8 @@
         :indexChild="id"
         :childSavedData="childData"
         @remove="deleteUnsavedChild(id)"
-        @child-data="getOneChildData"
+        @child-name="getChildName"
+        @child-age="getChildAge"
       />
     </div>
   </transition-group>
@@ -25,15 +24,24 @@ import ChildDataForm from '@/features/user-data-form/childs/child-data-form/Chil
 import { useAddChildren } from '@/features'
 import { type ChildData } from '@/entities'
 
-const { addChildForm, unsavedChildren, removeChildForm, editChildData, getSavedChildren } =
-  useAddChildren()
+const {
+  addChildForm,
+  unsavedChildren,
+  removeChildForm,
+  editChildAge,
+  editChildName,
+  getSavedChildren
+} = useAddChildren()
 
 const isChildrenFive = computed(() => {
   return unsavedChildren.value.length >= 5
 })
 
-const getOneChildData = (childData: ChildData) => {
-  editChildData(childData)
+const getChildName = (childData: ChildData) => {
+  editChildName(childData)
+}
+const getChildAge = (childData: ChildData) => {
+  editChildAge(childData)
 }
 const deleteUnsavedChild = (id: number) => {
   removeChildForm(id)

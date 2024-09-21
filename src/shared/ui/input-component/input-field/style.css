@@ -7,6 +7,7 @@
     outline: none;
     height: 56px;
     transition: border-color 0.3s ease;
+    -moz-appearance: textfield;
 }
 
 .form-input:focus {
@@ -15,4 +16,10 @@
 
 .form-input--error,  .form-input--error:focus {
     border-color: var(--error-color);
+}
+
+.form-input::-webkit-inner-spin-button,
+.form-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

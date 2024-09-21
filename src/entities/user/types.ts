@@ -20,5 +20,9 @@ interface NameData {
 interface AgeData {
   age: number
 }
-
-export type { UserData, ChildData, ParentData, AgeData, NameData }
+type NewValueEvent = {
+  target: {
+    value: number | string
+  }
+}
+export type { UserData, ChildData, ParentData, AgeData, NameData, NewValueEvent }

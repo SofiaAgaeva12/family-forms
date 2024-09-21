@@ -21,13 +21,11 @@ const useAddChildren = () => {
       unsavedChildren.value.splice(id, 1)
     }
   }
-  const editChildData = (childData: ChildData) => {
-    if (childData.name) {
-      unsavedChildren.value[childData.id].name = childData.name
-    }
-    if (childData.age) {
-      unsavedChildren.value[childData.id].age = childData.age
-    }
+  const editChildName = (childData: ChildData) => {
+    unsavedChildren.value[childData.id].name = childData.name
+  }
+  const editChildAge = (childData: ChildData) => {
+    unsavedChildren.value[childData.id].age = childData.age
   }
 
   const saveChildren = () => {
@@ -40,7 +38,8 @@ const useAddChildren = () => {
     addChildForm,
     removeChildForm,
     unsavedChildren,
-    editChildData,
+    editChildName,
+    editChildAge,
     saveChildren,
     getSavedChildren
   }
